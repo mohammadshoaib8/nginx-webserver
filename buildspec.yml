@@ -2,8 +2,8 @@ version: 0.2
 
 env:
   variables:
-    IMAGE_REPO_NAME: msshoaib2255457/nginx-webserver # Replace with your DockerHub repo name
-    IMAGE_TAG: latest               # Replace with your desired tag (you can dynamically set this)
+    IMAGE_REPO_NAME: msshoaib2255457/nginx-webserver  # Replace with your DockerHub repo name
+    IMAGE_TAG: latest  # Replace with your desired tag (you can dynamically set this)
 
 phases:
   install:
