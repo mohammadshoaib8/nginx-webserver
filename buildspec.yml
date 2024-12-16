@@ -1,24 +1,27 @@
 version: 0.2
 env:
   variables:
-    IMAGE_REPO_NAME: IMAGE_REPO_NAME
-    IMAGE_TAG: IMAGE_TAG
+    IMAGE_REPO_NAME: msshoaib2255457/nginx-webserver  # Replace with your actual DockerHub repo name
+    IMAGE_TAG: latest                   # Replace with a specific tag if required
 
 phases:
   install:
-    runtime-version: 
+    runtime-versions:
       docker: 18
   pre_build:
     commands:
-      - echo Login To Dockerhub
-      - echo "Debugging environment variables"
-      - echo "IMAGE_REPO_NAME: $IMAGE_REPO_NAME"
-      - echo "IMAGE_TAG: $IMAGE_TAG"
-      - ls -al   # Check if Dockerfile is in the correct directory
+      - echo Logging into DockerHub...
+      - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+      - echo Debugging environment variables...
+      - echo IMAGE_REPO_NAME: $IMAGE_REPO_NAME
+      - echo IMAGE_TAG: $IMAGE_TAG
+      - echo "Listing files in the build context:"
+      - ls -al .
+      - echo Checking for Dockerfile:
+      - if [ ! -f Dockerfile ]; then echo "Dockerfile not found!"; exit 1; fi
   build:
     commands:
-      - echo Starting The Build
-      - docker login --username msshoaib2255457 --password 177y1a0464
+      - echo Starting the Docker build...
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
   post_build:
     commands:
