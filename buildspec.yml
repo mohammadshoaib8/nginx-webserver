@@ -4,8 +4,7 @@ env:
   variables:
     IMAGE_REPO_NAME: msshoaib2255457/nginx-webserver # Replace with your DockerHub repo name
     IMAGE_TAG: latest               # Replace with your desired tag (you can dynamically set this)
-    DOCKER_USERNAME: msshoaib2255457
-    DOCKER_PASSWORD: 177y1a0464
+
 phases:
   install:
     runtime-versions:
@@ -14,7 +13,7 @@ phases:
   pre_build:
     commands:
       - echo "Logging into DockerHub..."
-      - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+      - docker login --username msshoaib2255457 --password 177y1a0464
       - echo "Debugging environment variables..."
       - echo "IMAGE_REPO_NAME: $IMAGE_REPO_NAME"
       - echo "IMAGE_TAG: $IMAGE_TAG"
