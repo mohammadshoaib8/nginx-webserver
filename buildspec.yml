@@ -11,12 +11,14 @@ phases:
   pre_build:
     commands:
       - echo Login To Dockerhub
+      - echo "Debugging environment variables"
+      - echo "IMAGE_REPO_NAME: $IMAGE_REPO_NAME"
+      - echo "IMAGE_TAG: $IMAGE_TAG"
+      - ls -al   # Check if Dockerfile is in the correct directory
   build:
     commands:
       - echo Starting The Build
       - docker login --username msshoaib2255457 --password 177y1a0464
-      - echo $IMAGE_REPO_NAME
-      - echo $IMAGE_TAG
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
   post_build:
     commands:
