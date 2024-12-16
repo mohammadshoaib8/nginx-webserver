@@ -4,7 +4,8 @@ env:
   variables:
     IMAGE_REPO_NAME: msshoaib2255457/nginx-webserver # Replace with your DockerHub repo name
     IMAGE_TAG: latest               # Replace with your desired tag (you can dynamically set this)
-
+    DOCKER_USERNAME: msshoaib2255457
+    DOCKER_PASSWORD: 177y1a0464
 phases:
   install:
     runtime-versions:
